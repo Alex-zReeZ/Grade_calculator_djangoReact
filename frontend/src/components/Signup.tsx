@@ -15,6 +15,11 @@ const Signup = () => {
         },
         body: JSON.stringify({ username, password, email }),
       });
+      if (response.ok) {
+        setEmail("");
+        setPassword("");
+        setUsername("");
+      }
       const data = await response.json();
       console.log(data);
     } catch (error) {
