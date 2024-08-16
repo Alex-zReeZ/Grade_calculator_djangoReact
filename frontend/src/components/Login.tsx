@@ -56,6 +56,15 @@ const Login = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
           </div>
+          <div>
+            <a
+              href="/signup"
+              className="text-sm text-indigo-600 hover:underline transition duration-300"
+            >
+              Don't have an account?
+              Sign up
+            </a>
+          </div>
           <button
             type="submit"
             className="w-full bg-indigo-600 text-white py-2 rounded-lg font-medium hover:bg-indigo-700 transition duration-300"
