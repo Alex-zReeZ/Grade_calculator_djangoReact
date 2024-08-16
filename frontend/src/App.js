@@ -1,3 +1,4 @@
+// frontend/src/App.js
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -9,6 +10,7 @@ import { isAuthenticated } from "./lib/context.ts";
 import Login from "./components/Login.tsx";
 import Signup from "./components/Signup.tsx";
 import Home from "./pages/Home.tsx";
+import Grades from "./template/Grades.tsx";
 
 const App = () => {
   return (
@@ -22,6 +24,15 @@ const App = () => {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/:branch"
+          element={
+            <Grades
+              branchName={window.location.pathname.split("/")[1]}
+              fetchUrl={`http://localhost:8000/grades/${window.location.pathname.split("/")[1]}`}
+            />
+          }
+        />
       </Routes>
     </Router>
   );
