@@ -17,20 +17,19 @@ function Home() {
         </section>
         <section className="grid grid-cols-2 gap-2 w-full h-full p-5 bg-gray-100 shadow-lg rounded-2xl">
           <a
-            href="/Francais"
-            id="Français"
+            href="/French"
             className="text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600"
           >
             Français
           </a>
           <a
-            href="/Allemand"
+            href="/German"
             className="text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600"
           >
             Allemand
           </a>
           <a
-            href="/Anglais"
+            href="/English"
             className="text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600"
           >
             Anglais
@@ -42,25 +41,25 @@ function Home() {
             Maths
           </a>
           <a
-            href="/dc-sci"
+            href="/Science"
             className="text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600"
           >
             DF - Science Naturelle
           </a>
           <a
-            href="/dc-maths"
+            href="/Maths"
             className="text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600"
           >
             DF - Maths
           </a>
           <a
-            href="/dc-histoire"
+            href="/Histoire"
             className="text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600"
           >
             DC - Histoire
           </a>
           <a
-            href="/dc-eco&droit"
+            href="/Economics and Law"
             className="text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600"
           >
             DC - Economie et droit
