@@ -19,37 +19,38 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="w-1/3 space-y-4 bg-gray-100 p-4 rounded-xl shadow-md">
+        <form onSubmit={handleSubmit} className="w-1/3 max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg">
             <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-semibold text-gray-700">
                     Note (1-6)
                 </label>
                 <input
                     type="number"
                     value={gradeValue ?? ""}
                     onChange={(e) => setGradeValue(Number(e.target.value))}
-                    className="p-2 mt-1 block w-12 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                    className="mt-2 block w-16 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
                     min="1"
                     max="6"
+                    step="0.5"
                     required
                 />
             </div>
             <div>
-                <label className="block text-sm font-medium text-gray-700">
-                    Detail
+                <label className="block text-sm font-semibold text-gray-700">
+                    Détail
                 </label>
                 <textarea
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
-                    className="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-                    rows={3}
+                    className="mt-2 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
+                    rows={2}
                 />
             </div>
             <button
                 type="submit"
-                className="w-full py-2 px-4 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700"
+                className="w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             >
-                Add grade
+                Ajouter la note
             </button>
         </form>
     );
