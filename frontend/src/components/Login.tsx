@@ -64,8 +64,7 @@ const Login = () => {
               href="/signup"
               className="text-sm text-indigo-600 hover:underline transition duration-300"
             >
-              Don't have an account?
-              Sign up
+              Don't have an account? Sign up
             </a>
           </div>
           <button
