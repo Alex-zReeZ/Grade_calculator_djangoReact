@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import AddGrades from "../components/AddGrades.tsx";
 // @ts-ignore
 import GradeLine from "./GradeLine.tsx";
+// @ts-ignore
+import DisplayAverage from "./DisplayAverage.tsx";
 
 interface DynamicTemplateProps {
   branchName: string;
@@ -78,14 +80,23 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                 </a>
               ))}
             </div>
-            <div className="p-8 px-10 bg-white w-full rounded-b-2xl">
-              <h1 className="text-2xl font-bold mb-4">Notes pour {branchName}</h1>
-              <AddGrades onAddGrade={addGrade} branchName={branchName} />
-              <div className="mt-6">
+            <div className="flex h-fit gap-x-20 p-8 px-10 bg-white w-full rounded-b-2xl">
+              <div className="flex flex-col w-[500px]">
+                <div className="w-full">
+                  <h1 className="text-2xl font-bold mb-4">
+                    Notes pour {branchName}
+                  </h1>
+                  <AddGrades onAddGrade={addGrade} branchName={branchName} />
+                </div>
+                <div className="w-full mt-5">
+                  <DisplayAverage grades={grades} />
+                </div>
+              </div>
+              <div className="mt-6 w-full">
                 <h2 className="text-xl font-semibold mb-4">Liste des notes:</h2>
-                <ul className="space-y-4">
+                <ul className="grid grid-cols-2 gap-5 space-y-4">
                   {grades.map((grade, index) => (
-                    <GradeLine key={index} grade={grade} />
+                    <GradeLine key={index} grade={grade} index={index + 1} />
                   ))}
                 </ul>
               </div>

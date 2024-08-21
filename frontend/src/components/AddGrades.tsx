@@ -19,7 +19,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="w-1/3 max-w-md space-y-6 bg-white p-6 rounded-lg shadow-lg">
+        <form onSubmit={handleSubmit} className="w-full h-fit max-w-md space-y-6 bg-white p-6 rounded-lg shadow-2xl">
             <div>
                 <label className="block text-sm font-semibold text-gray-700">
                     Note (1-6)

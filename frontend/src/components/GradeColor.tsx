@@ -8,6 +8,6 @@ export function GradeColor({ grade }) {
         color = "#FEBE10";
     }
     return (
-        <span className="text-lg font-semibold text-blue-600 p-5 py-3 border-2 rounded-2xl" style={{ color: color }}>{grade}</span>
+        <span className="w-fit text-lg font-semibold p-5 py-3 border-2 bg-white rounded-2xl" style={{ color: color }}>{grade}</span>
     );
 }
