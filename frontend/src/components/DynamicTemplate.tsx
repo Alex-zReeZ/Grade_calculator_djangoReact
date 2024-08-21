@@ -47,7 +47,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
     "English",
     "German",
     "Science",
-    "Maths",
+    "Maths-DC",
     "Histoire",
     "Economics and Law",
     "TIP",

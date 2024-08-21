@@ -35,10 +35,10 @@ function Home() {
             Anglais
           </a>
           <a
-            href="/Maths"
+            href="/DC-Maths"
             className="text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600"
           >
-            Maths
+            Maths DC
           </a>
           <a
             href="/Science"
