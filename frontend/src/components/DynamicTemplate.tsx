@@ -41,13 +41,13 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
 
   const allBranch = [
     "Maths",
-    "Francais",
-    "Anglais",
-    "Allemand",
+    "French",
+    "English",
+    "German",
     "Science",
-    "Maths RE",
+    "Maths",
     "Histoire",
-    "Economie et Droite",
+    "Economics and Law",
     "TIP",
   ];
 
