@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { redirect } from "react-router-dom";
 
 function UserProfile() {
     const [isOpen, setIsOpen] = useState(false);
