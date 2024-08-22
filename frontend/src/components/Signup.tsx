@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {redirect} from "react-router-dom";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -19,6 +20,7 @@ const Signup = () => {
         setEmail("");
         setPassword("");
         setUsername("");
+        redirect("/login");
       }
       const data = await response.json();
       console.log(data);
