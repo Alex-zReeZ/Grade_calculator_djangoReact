@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { redirect } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
         body: JSON.stringify({ username, password }),
       });
       if (response.ok) {
-        window.location.href = "/";
+        redirect("/");
       }
       const data = await response.json();
       if (data.token) {
