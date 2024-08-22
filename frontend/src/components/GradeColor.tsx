@@ -10,7 +10,7 @@ export function GradeColor({ grade }) {
   return (
     <span
       className="w-fit text-lg font-semibold p-5 py-3 border-2 bg-white rounded-2xl"
-      style={{ color: color }}
+      style={{ color: color, borderColor: color }}
     >
       {grade}
     </span>
