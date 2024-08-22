@@ -94,7 +94,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
               </div>
               <div className="w-full">
                 <h2 className="text-2xl font-bold mb-4">Liste des notes:</h2>
-                <ul className="grid grid-cols-2 gap-5 space-y-4">
+                <ul className="grid grid-cols-2 gap-5">
                   {grades.map((grade, index) => (
                     <GradeLine key={index} grade={grade} index={index + 1} />
                   ))}
