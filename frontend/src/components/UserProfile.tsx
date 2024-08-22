@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { redirect } from "react-router-dom";
 
 function UserProfile() {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleLogout = () => {
         document.cookie = "token=; path=/; max-age=0";
-        window.location.href = "/login";
+        redirect("/login");
     };
 
     return (
