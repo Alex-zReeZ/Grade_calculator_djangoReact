@@ -6,7 +6,7 @@ function UserProfile() {
 
     const handleLogout = () => {
         document.cookie = "token=; path=/; max-age=0";
-        redirect("/login");
+        window.location.href = "/login";
     };
 
     return (

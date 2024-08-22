@@ -16,7 +16,7 @@ const Login = () => {
         body: JSON.stringify({ username, password }),
       });
       if (response.ok) {
-        redirect("/");
+        window.location.href = "/";
       }
       const data = await response.json();
       if (data.token) {

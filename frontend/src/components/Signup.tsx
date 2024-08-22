@@ -20,7 +20,7 @@ const Signup = () => {
         setEmail("");
         setPassword("");
         setUsername("");
-        redirect("/login");
+        window.location.href = "/login";
       }
       const data = await response.json();
       console.log(data);
