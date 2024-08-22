@@ -49,6 +49,7 @@ function Home() {
         <h1 className="text-4xl font-bold text-blue-600">GradiX</h1>
       </header>
 
+      <UserProfile />
 
       <main className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <section className="text-center">
