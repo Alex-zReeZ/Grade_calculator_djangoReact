@@ -29,7 +29,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
     >
       <div>
         <label className="block text-sm font-semibold text-gray-700">
-          Note (1-6)
+          Grade (1-6)
         </label>
         <input
           type="number"
@@ -44,7 +44,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
       </div>
       <div>
         <label className="block text-sm font-semibold text-gray-700">
-          Détail
+          Detail
         </label>
         <textarea
           value={comment}
@@ -57,7 +57,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
         type="submit"
         className="w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
       >
-        Ajouter la note
+        Add Grade
       </button>
     </form>
   );

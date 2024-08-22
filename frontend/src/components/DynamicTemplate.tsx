@@ -84,7 +84,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
               <div className="flex flex-col w-[500px]">
                 <div className="w-full">
                   <h1 className="text-2xl font-bold mb-4">
-                    Notes pour {branchName}
+                    Your {branchName} Grades
                   </h1>
                   <AddGrades onAddGrade={addGrade} branchName={branchName} />
                 </div>
@@ -93,7 +93,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                 </div>
               </div>
               <div className="w-full">
-                <h2 className="text-2xl font-bold mb-4">Liste des notes:</h2>
+                <h2 className="text-2xl font-bold mb-4">Your Grades:</h2>
                 <ul className="grid grid-cols-2 gap-5">
                   {grades.map((grade, index) => (
                     <GradeLine key={index} grade={grade} index={index + 1} />
