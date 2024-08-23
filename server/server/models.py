@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Grade(models.Model):
     grade = models.IntegerField(unique=True)
     detail = models.CharField(max_length=255, default='default')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return str(self.grade)
@@ -14,14 +16,11 @@ class Branch(models.Model):
     def __str__(self):
         return self.name
 
-class User(models.Model):
-    username = models.CharField(max_length=255, default='default')
-    email = models.EmailField(max_length=255, default='default')
-    password = models.CharField(max_length=255, default='default')
-    mybranch = models.ForeignKey(Branch, on_delete=models.CASCADE, null=True, blank=True)
+class GradeUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.username
+        return self.user
 
 class AllBranch(models.Model):
     branche = models.ForeignKey(Branch, on_delete=models.CASCADE)
