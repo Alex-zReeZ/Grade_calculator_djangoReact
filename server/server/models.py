@@ -9,9 +9,16 @@ class Grade(models.Model):
     def __str__(self):
         return str(self.grade)
 
+class AllBranch(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return str(self.name)
+
 class Branch(models.Model):
     name = models.CharField(max_length=255)
     grades = models.ForeignKey(Grade, on_delete=models.CASCADE)
+    branch = models.ForeignKey(AllBranch, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -21,9 +28,3 @@ class GradeUser(models.Model):
 
     def __str__(self):
         return self.user
-
-class AllBranch(models.Model):
-    branche = models.ForeignKey(Branch, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return str(self.branche)
