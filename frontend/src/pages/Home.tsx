@@ -36,6 +36,11 @@ function Home() {
       text: "Economie et droit - DC",
     },
     {
+      href: "/Module",
+      text: "Module",
+      className: "col-span-2",
+    },
+    {
       href: "/TIP",
       text: "TIP",
       className: "col-span-2",

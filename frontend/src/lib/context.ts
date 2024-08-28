@@ -15,6 +15,7 @@ export const getAllBranches = () => {
     "Maths DC",
     "Histoire",
     "Economics and Law",
+    "Module",
     "TIP",
   ];
 };
