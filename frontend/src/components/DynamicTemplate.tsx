@@ -21,11 +21,10 @@ interface Grade {
   detail: string;
 }
 
-const DynamicTemplate: React.FC<DynamicTemplateProps> = (
-    {
+const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   branchName,
   fetchUrl,
-    }) => {
+}) => {
   const [grades, setGrades] = useState<Grade[]>([]);
   const allBranch = getAllBranches();
 
@@ -89,15 +88,16 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = (
                   <AddGrades onAddGrade={addGrade} branchName={branchName} />
                 </div>
                 <div className="w-full mt-5">
-                  <DisplayAverage grades={grades}/>
+                  <DisplayAverage grades={grades} />
                 </div>
               </div>
               <div className="w-full">
                 <h2 className="text-2xl font-bold mb-4">Your Grades:</h2>
                 <ul className="grid grid-cols-2 gap-5">
-                  {Array.isArray(grades) && grades.map((grade, index) => (
-                    <GradeLine key={index} grade={grade} index={index + 1} />
-                  ))}
+                  {Array.isArray(grades) &&
+                    grades.map((grade, index) => (
+                      <GradeLine key={index} grade={grade} index={index + 1} />
+                    ))}
                 </ul>
               </div>
             </div>

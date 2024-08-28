@@ -2,45 +2,44 @@
 import UserProfile from "../components/UserProfile.tsx";
 
 function Home() {
-
   const links = [
     {
       href: "/Maths",
-      text: "Maths - DF"
+      text: "Maths - DF",
     },
     {
       href: "/French",
-      text: "Français"
+      text: "Français",
     },
     {
       href: "/English",
-      text: "Anglais"
+      text: "Anglais",
     },
     {
       href: "/German",
-      text: "Allemand"
+      text: "Allemand",
     },
     {
       href: "/Science",
-      text: "Science Naturelle - DF"
+      text: "Science Naturelle - DF",
     },
     {
       href: "/Maths DC",
-      text: "Maths - DC"
+      text: "Maths - DC",
     },
     {
       href: "/Histoire",
-      text: "Histoire - DC"
+      text: "Histoire - DC",
     },
     {
       href: "/Economics and Law",
-      text: "Economie et droit - DC"
+      text: "Economie et droit - DC",
     },
     {
       href: "/TIP",
       text: "TIP",
-      className: "col-span-2"
-    }
+      className: "col-span-2",
+    },
   ];
 
   return (
@@ -62,14 +61,14 @@ function Home() {
           </p>
         </section>
         <section className="grid grid-cols-2 gap-2 w-full h-full p-5 bg-gray-100 shadow-lg rounded-2xl">
-          {links.map(({href, text, className = ""}, index) => (
-              <a
-                  key={index}
-                  href={href}
-                  className={`text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600 ${className}`}
-              >
-                {text}
-              </a>
+          {links.map(({ href, text, className = "" }, index) => (
+            <a
+              key={index}
+              href={href}
+              className={`text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600 ${className}`}
+            >
+              {text}
+            </a>
           ))}
         </section>
       </main>

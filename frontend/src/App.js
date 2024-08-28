@@ -26,15 +26,15 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         {links.map((link) => (
-            <Route
-                path={`/${link}`}
-                element={
-                <Grades
-                    branchName={link}
-                    fetchUrl={`http://localhost:8000/grades/${link}/list`}
-                />
-                }
-            />
+          <Route
+            path={`/${link}`}
+            element={
+              <Grades
+                branchName={link}
+                fetchUrl={`http://localhost:8000/grades/${link}/list`}
+              />
+            }
+          />
         ))}
       </Routes>
     </Router>

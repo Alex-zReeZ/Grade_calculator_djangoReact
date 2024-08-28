@@ -2,7 +2,7 @@
 import { GradeColor } from "./GradeColor.tsx";
 
 function GradeLine({ grade, index }) {
-    return (
+  return (
     <li className="w-full p-4 bg-white rounded-xl shadow-md">
       <div className="flex justify-between items-center">
         <span className="font-bold p-5">{index}.</span>
@@ -15,6 +15,6 @@ function GradeLine({ grade, index }) {
       </div>
     </li>
   );
-};
+}
 
 export default GradeLine;

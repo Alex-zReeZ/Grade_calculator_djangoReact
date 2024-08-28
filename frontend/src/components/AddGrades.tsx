@@ -17,13 +17,16 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8000/grades/${branchName}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `http://localhost:8000/grades/${branchName}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ grade, detail }),
         },
-        body: JSON.stringify({ grade, detail }),
-      });
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
