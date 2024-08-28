@@ -3,7 +3,7 @@ import { useState } from "react";
 interface AddGradeFormProps {
   onAddGrade: (grade: {
     subject: string;
-    value: number;
+    grade: number;
     detail: string;
   }) => void;
   branchName: string;
@@ -31,7 +31,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
 
       const data = await response.json();
       if (grade !== null) {
-        onAddGrade({ subject: branchName, value: grade, detail });
+        onAddGrade({ subject: branchName, grade: grade, detail });
         setgrade(null);
         setdetail("");
       }

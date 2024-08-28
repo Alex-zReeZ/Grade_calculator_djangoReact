@@ -1,5 +1,5 @@
 interface DisplayAverageProps {
-  grades: { value: number }[];
+  grades: { grade: number }[];
 }
 
 const DisplayAverage: React.FC<DisplayAverageProps> = ({ grades }) => {
@@ -10,7 +10,7 @@ const DisplayAverage: React.FC<DisplayAverageProps> = ({ grades }) => {
         <span className="text-lg font-semibold p-5 py-3 border-2 bg-white rounded-2xl">
           {grades.length > 0
             ? (
-                grades.reduce((acc, grade) => acc + grade.value, 0) /
+                grades.reduce((acc, grade) => acc + grade.grade, 0) /
                 grades.length
               ).toFixed(1)
             : "N/A"}

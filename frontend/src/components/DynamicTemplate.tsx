@@ -17,8 +17,8 @@ interface DynamicTemplateProps {
 
 interface Grade {
   subject: string;
-  value: number;
-  comment: string;
+  grade: number;
+  detail: string;
 }
 
 const DynamicTemplate: React.FC<DynamicTemplateProps> = (
@@ -50,6 +50,8 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = (
   const addGrade = (newGrade: Grade) => {
     setGrades((prevGrades) => [...prevGrades, newGrade]);
   };
+
+  console.log("grades", grades);
 
   return (
     <>
