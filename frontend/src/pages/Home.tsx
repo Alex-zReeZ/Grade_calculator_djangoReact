@@ -17,7 +17,7 @@ function Home() {
       text: "Anglais"
     },
     {
-      href: "/DC-Maths",
+      href: "/Maths DC",
       text: "Maths DC"
     },
     {
