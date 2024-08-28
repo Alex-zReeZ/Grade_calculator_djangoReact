@@ -50,6 +50,8 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
     setGrades((prevGrades) => [...prevGrades, newGrade]);
   };
 
+  const isModule = branchName === "Module";
+
   return (
     <>
       <div className="p-4 bg-gray-100">
@@ -88,7 +90,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                   <AddGrades onAddGrade={addGrade} branchName={branchName} />
                 </div>
                 <div className="w-full mt-5">
-                  <DisplayAverage grades={grades} />
+                  <DisplayAverage grades={grades} module={isModule} />
                 </div>
               </div>
               <div className="w-full">
