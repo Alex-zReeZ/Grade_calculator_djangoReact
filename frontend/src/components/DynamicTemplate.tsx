@@ -8,7 +8,7 @@ import DisplayAverage from "./DisplayAverage.tsx";
 // @ts-ignore
 import UserProfile from "./UserProfile.tsx";
 // @ts-ignore
-import { getAllBranches } from "../lib/context.tsx";
+import { getAllBranches } from "../lib/context.ts";
 
 interface DynamicTemplateProps {
   branchName: string;
