@@ -59,6 +59,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
           min="1"
           max="6"
           step="0.5"
+          placeholder="1-6"
           required
         />
       </div>
@@ -71,6 +72,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
           onChange={(e) => setdetail(e.target.value)}
           className="mt-2 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
           rows={2}
+            placeholder="Entre your test chapter or module number"
         />
       </div>
       <button
