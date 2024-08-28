@@ -29,7 +29,6 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data = await response.json();
       if (grade !== null) {
         onAddGrade({ subject: branchName, grade: grade, detail });
         setgrade(null);
