@@ -7,7 +7,8 @@ import GradeLine from "./GradeLine.tsx";
 import DisplayAverage from "./DisplayAverage.tsx";
 // @ts-ignore
 import UserProfile from "./UserProfile.tsx";
-import {getAllBranches} from "../lib/context";
+// @ts-ignore
+import { getAllBranches } from "../lib/context.tsx";
 
 interface DynamicTemplateProps {
   branchName: string;
