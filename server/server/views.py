@@ -57,3 +57,14 @@ def add_branch(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def get_grades_by_branch(request, branch_name):
+    try:
+        branch = AllBranch.objects.get(name=branch_name)
+    except AllBranch.DoesNotExist:
+        return Response({'error': 'Branch not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    grades = Grade.objects.filter(branch__branch=branch)
+    serializer = GradeSerializer(grades, many=True)
+    return Response(serializer.data)
