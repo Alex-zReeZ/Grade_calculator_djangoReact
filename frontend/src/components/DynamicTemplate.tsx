@@ -7,6 +7,7 @@ import GradeLine from "./GradeLine.tsx";
 import DisplayAverage from "./DisplayAverage.tsx";
 // @ts-ignore
 import UserProfile from "./UserProfile.tsx";
+import {getAllBranches} from "../lib/context";
 
 interface DynamicTemplateProps {
   branchName: string;
@@ -19,11 +20,13 @@ interface Grade {
   comment: string;
 }
 
-const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
+const DynamicTemplate: React.FC<DynamicTemplateProps> = (
+    {
   branchName,
   fetchUrl,
-}) => {
+    }) => {
   const [grades, setGrades] = useState<Grade[]>([]);
+  const allBranch = getAllBranches();
 
   useEffect(() => {
     const fetchGrades = async () => {
@@ -46,18 +49,6 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   const addGrade = (newGrade: Grade) => {
     setGrades((prevGrades) => [...prevGrades, newGrade]);
   };
-
-  const allBranch = [
-    "Maths",
-    "French",
-    "English",
-    "German",
-    "Science",
-    "Maths DC",
-    "Histoire",
-    "Economics and Law",
-    "TIP",
-  ];
 
   return (
     <>

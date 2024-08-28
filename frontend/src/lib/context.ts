@@ -4,3 +4,17 @@ export function isAuthenticated() {
     .find((row) => row.startsWith("token="));
   return !!token;
 }
+
+export const getAllBranches = () => {
+  return [
+    "Maths",
+    "French",
+    "English",
+    "German",
+    "Science",
+    "Maths DC",
+    "Histoire",
+    "Economics and Law",
+    "TIP",
+  ];
+};
