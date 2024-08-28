@@ -4,21 +4,39 @@ interface AddGradeFormProps {
   onAddGrade: (grade: {
     subject: string;
     value: number;
-    comment: string;
+    detail: string;
   }) => void;
   branchName: string;
 }
 
 const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
-  const [gradeValue, setGradeValue] = useState<number | null>(null);
-  const [comment, setComment] = useState("");
+  const [grade, setgrade] = useState<number | null>(null);
+  const [detail, setdetail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (gradeValue !== null) {
-      onAddGrade({ subject: branchName, value: gradeValue, comment });
-      setGradeValue(null);
-      setComment("");
+
+    try {
+      const response = await fetch(`http://localhost:8000/grades/${branchName}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ grade, detail }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (grade !== null) {
+        onAddGrade({ subject: branchName, value: grade, detail });
+        setgrade(null);
+        setdetail("");
+      }
+    } catch (error) {
+      console.error("Error submitting grade:", error);
     }
   };
 
@@ -33,8 +51,8 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
         </label>
         <input
           type="number"
-          value={gradeValue ?? ""}
-          onChange={(e) => setGradeValue(Number(e.target.value))}
+          value={grade ?? ""}
+          onChange={(e) => setgrade(Number(e.target.value))}
           className="mt-2 block w-16 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
           min="1"
           max="6"
@@ -47,8 +65,8 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
           Detail
         </label>
         <textarea
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          value={detail}
+          onChange={(e) => setdetail(e.target.value)}
           className="mt-2 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
           rows={2}
         />

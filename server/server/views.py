@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import Grade, AllBranch
+from .models import Grade, AllBranch, BranchGrade
 from .serializers import UserSerializer, GradeSerializer, BranchSerializer
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -36,6 +36,19 @@ def allusers(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def add_grade(request, branch_name):
+    all_branch = get_object_or_404(AllBranch, name=branch_name)
+    branch_grade, created = BranchGrade.objects.get_or_create(branch=all_branch)
+    serializer = GradeSerializer(data=request.data)
+
+    if serializer.is_valid():
+        grade = serializer.save()
+        grade.branch = branch_grade
+        grade.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def add_branch(request):
