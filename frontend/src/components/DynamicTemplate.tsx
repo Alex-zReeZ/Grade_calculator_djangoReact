@@ -51,8 +51,6 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = (
     setGrades((prevGrades) => [...prevGrades, newGrade]);
   };
 
-  console.log("grades", grades);
-
   return (
     <>
       <div className="p-4 bg-gray-100">
