@@ -70,7 +70,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                   href={`/${branch}`}
                   className={`p-4 bg-white rounded-t-2xl hover:border-2 hover:border-blue-600 hover:border-b-0 hover:z-0 text-center 0px] font-semibold ${
                     branch === branchName
-                      ? "bg-gray-100 text-blue-600 border-2 border-b-0 border-blue-600 -mt-2 z-0"
+                      ? "bg-gray-100 text-blue-600 border-2 border-b-0 border-blue-600 outline-none -mt-2 z-0"
                       : ""
                   }`}
                 >
