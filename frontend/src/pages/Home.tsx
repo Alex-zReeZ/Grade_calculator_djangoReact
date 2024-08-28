@@ -5,36 +5,36 @@ function Home() {
 
   const links = [
     {
-      href: "/French",
-      text: "Français"
+      href: "/Maths",
+      text: "Maths - DF"
     },
     {
-      href: "/German",
-      text: "Allemand"
+      href: "/French",
+      text: "Français"
     },
     {
       href: "/English",
       text: "Anglais"
     },
     {
-      href: "/Maths DC",
-      text: "Maths DC"
+      href: "/German",
+      text: "Allemand"
     },
     {
       href: "/Science",
-      text: "DF - Science Naturelle"
+      text: "Science Naturelle - DF"
     },
     {
-      href: "/Maths",
-      text: "DF - Maths"
+      href: "/Maths DC",
+      text: "Maths - DC"
     },
     {
       href: "/Histoire",
-      text: "DC - Histoire"
+      text: "Histoire - DC"
     },
     {
       href: "/Economics and Law",
-      text: "DC - Economie et droit"
+      text: "Economie et droit - DC"
     },
     {
       href: "/TIP",
