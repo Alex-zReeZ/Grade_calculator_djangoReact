@@ -5,6 +5,8 @@ import AddGrades from "../components/AddGrades.tsx";
 import GradeLine from "./GradeLine.tsx";
 // @ts-ignore
 import DisplayAverage from "./DisplayAverage.tsx";
+// @ts-ignore
+import UserProfile from "./UserProfile.tsx";
 
 interface DynamicTemplateProps {
   branchName: string;
@@ -28,7 +30,11 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
       try {
         const response = await fetch(fetchUrl);
         const data = await response.json();
-        setGrades(data);
+        if (Array.isArray(data)) {
+          setGrades(data);
+        } else {
+          console.error("Fetched data is not an array:", data);
+        }
       } catch (error) {
         console.error("Error fetching grades:", error);
       }
@@ -62,6 +68,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
           </h1>
         </header>
       </div>
+      <UserProfile />
       <div className="p-4 min-h-screen bg-gray-100 flex flex-col">
         <main>
           <section>
@@ -86,16 +93,17 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                   <h1 className="text-2xl font-bold mb-4">
                     Your {branchName} Grades
                   </h1>
+                  {/* @ts-ignore */}
                   <AddGrades onAddGrade={addGrade} branchName={branchName} />
                 </div>
                 <div className="w-full mt-5">
-                  <DisplayAverage grades={grades} />
+                  <DisplayAverage grades={grades}/>
                 </div>
               </div>
               <div className="w-full">
                 <h2 className="text-2xl font-bold mb-4">Your Grades:</h2>
                 <ul className="grid grid-cols-2 gap-5">
-                  {grades.map((grade, index) => (
+                  {Array.isArray(grades) && grades.map((grade, index) => (
                     <GradeLine key={index} grade={grade} index={index + 1} />
                   ))}
                 </ul>
