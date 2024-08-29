@@ -77,12 +77,8 @@ function Home() {
           ))}
         </section>
         <div className="text-center text-gray-500 mt-7">
-          <p>
-            *DF: Discipline Fondamentale
-          </p>
-          <p>
-              *DC: Discipline Complémentaire
-          </p>
+          <p>*DF: Discipline Fondamentale</p>
+          <p>*DC: Discipline Complémentaire</p>
         </div>
       </main>
       <footer className="mt-8 text-gray-500">© 2024 GradiX</footer>
