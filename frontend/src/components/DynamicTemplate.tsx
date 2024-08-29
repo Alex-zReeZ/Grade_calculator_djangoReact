@@ -50,7 +50,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
     setGrades((prevGrades) => [...prevGrades, newGrade]);
   };
 
-  const isModule = branchName === "Module";
+  const isModule = branchName === "Module" || branchName === "TIP";
 
   return (
     <>
