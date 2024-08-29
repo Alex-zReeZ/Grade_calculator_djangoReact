@@ -35,7 +35,7 @@ function UserProfile() {
       </button>
       {isOpen && (
         <>
-          <div className="absolute top-16 right-5 bg-white p-4 rounded-lg shadow-lg">
+          <div className="absolute top-16 right-0 bg-white p-4 rounded-lg shadow-lg">
             <a
               href="/profile"
               className="block py-2 px-4 text-gray-800 hover:bg-gray-100 hover:rounded-2xl"
