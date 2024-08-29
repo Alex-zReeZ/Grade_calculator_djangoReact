@@ -72,7 +72,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
           onChange={(e) => setdetail(e.target.value)}
           className="mt-2 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
           rows={2}
-            placeholder="Entre your test chapter or module number"
+            placeholder="Enter your test chapter or module number"
         />
       </div>
       <button
