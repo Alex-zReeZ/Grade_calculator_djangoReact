@@ -9,14 +9,17 @@ function Home() {
     {
       href: "/Maths",
       text: "Maths - DF",
+      className: "bg-math-bg text-white"
     },
     {
       href: "/French",
       text: "Français",
+      className: "bg-French-bg text-black bg-center"
     },
     {
       href: "/English",
       text: "Anglais",
+      className: "bg-English-bg text-black bg-center"
     },
     {
       href: "/German",
@@ -88,13 +91,15 @@ function Home() {
           </section>
           <section className="grid grid-cols-2 gap-2 w-full h-full p-5 bg-gray-100 shadow-lg rounded-2xl">
             {links.map(({ href, text, className = "" }, index) => (
-              <a
-                key={index}
-                href={href}
-                className={`text-center p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600 ${className}`}
-              >
-                {text}
-              </a>
+                <a
+                    key={index}
+                    href={href}
+                    className={`text-center py-5 p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600 ${className}`}
+                >
+                <span className="inset-0 flex items-center justify-center font-bold">
+                  {text}
+                </span>
+                </a>
             ))}
           </section>
           <div className="text-center text-gray-500 mt-7">
