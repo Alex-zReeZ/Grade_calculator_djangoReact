@@ -1,5 +1,8 @@
 // @ts-ignore
 import UserProfile from "../components/UserProfile.tsx";
+import { useState } from "react";
+// @ts-ignore
+import RadialBarChart from "../components/RadialBarChart.tsx";
 
 function Home() {
   const links = [
@@ -47,14 +50,28 @@ function Home() {
     },
   ];
 
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <nav className="absolute right-5 top-5 flex flex-row gap-x-5 ">
-        <button className="p-3 rounded-2xl bg-white shadow-2xl hover:border-2 hover:border-blue-600">
+        <button
+          className="p-3 rounded-2xl bg-white shadow-2xl hover:border-2 hover:border-blue-600"
+          onClick={() => setOpen(!open)}
+        >
           Year data
         </button>
         <UserProfile />
       </nav>
+      {open && (
+        <>
+          <div className="absolute right-24 top-[84px] w-[89%] h-[81%] bg-white rounded-2xl shadow-2xl z-0">
+            <div className="flex">
+              <RadialBarChart />
+            </div>
+          </div>
+        </>
+      )}
       <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-blue-600">GradiX</h1>
