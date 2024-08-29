@@ -61,7 +61,9 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
           </h1>
         </header>
       </div>
-      <UserProfile />
+      <div className="absolute top-5 right-5">
+        <UserProfile />
+      </div>
       <div className="p-4 min-h-screen bg-gray-100 flex flex-col">
         <main>
           <section>
