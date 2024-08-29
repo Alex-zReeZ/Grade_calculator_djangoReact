@@ -9,9 +9,9 @@ function UserProfile() {
   };
 
   return (
-    <nav>
+    <div>
       <button
-        className="absolute p-1 right-5 top-5 cursor-pointer"
+          className="flex justify-center items-center h-14 w-14 rounded-full bg-white cursor-pointer shadow-2xl hover:border-2 hover:border-blue-600"
         onClick={() => {
           setIsOpen(!isOpen);
         }}
@@ -51,7 +51,7 @@ function UserProfile() {
           </div>
         </>
       )}
-    </nav>
+    </div>
   );
 }
 
