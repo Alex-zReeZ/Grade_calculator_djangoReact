@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 class AllBranch(models.Model):
     name = models.CharField(max_length=255)
+    average = models.FloatField(default=0)
 
     def __str__(self):
         return str(self.name)
