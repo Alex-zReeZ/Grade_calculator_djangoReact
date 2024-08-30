@@ -12,11 +12,12 @@ export function GradeColor({ grade }) {
     color = "#FEBE10";
   }
 
-  return (
-    grade === 0 ? "No Grade Yet" :
+  return grade === 0 ? (
+    "No Grade Yet"
+  ) : (
     <span
       className="w-fit text-lg font-semibold p-5 py-3 border-2 bg-white rounded-2xl"
-      style={{color: color, borderColor: color}}
+      style={{ color: color, borderColor: color }}
     >
       {grade}
     </span>

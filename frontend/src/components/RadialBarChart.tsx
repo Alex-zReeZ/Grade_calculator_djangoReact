@@ -75,10 +75,10 @@ const RadialBarChart = () => {
   const series = [parseFloat(progress)];
 
   return (
-      <div className="mt-10">
-        {/* @ts-ignore */}
-        <Chart options={options} series={series} type="radialBar" height={350} />
-      </div>
+    <div className="mt-10">
+      {/* @ts-ignore */}
+      <Chart options={options} series={series} type="radialBar" height={350} />
+    </div>
   );
 };
 
