@@ -33,8 +33,6 @@ function GradeLine({ grade, index, onDeleteGrade }) {
     }
   };
 
-  console.log(grade.id)
-
   return (
     <li className="w-full p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 ease-in-out">
       <div className="flex justify-between items-center">
