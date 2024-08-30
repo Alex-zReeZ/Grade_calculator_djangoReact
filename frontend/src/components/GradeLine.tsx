@@ -2,14 +2,38 @@
 import { GradeColor } from "./GradeColor.tsx";
 import { useState } from "react";
 
-function GradeLine({ grade, index }) {
+function GradeLine({ grade, index, onDeleteGrade }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleDelete = () => {};
+  const handleDelete = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+          `http://localhost:8000/grades/${grade.id}/`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(grade.id),
+          },
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      onDeleteGrade(grade.id);
+    } catch (error) {
+      console.error("Error submitting grade:", error);
+    }
+  };
+
+  console.log(grade.id)
 
   return (
     <li className="w-full p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 ease-in-out">

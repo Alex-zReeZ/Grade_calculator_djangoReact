@@ -16,6 +16,7 @@ interface DynamicTemplateProps {
 }
 
 interface Grade {
+  id: number;
   subject: string;
   grade: number;
   detail: string;
@@ -48,6 +49,10 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
 
   const addGrade = (newGrade: Grade) => {
     setGrades((prevGrades) => [...prevGrades, newGrade]);
+  };
+
+  const deleteGrade = (gradeId: number) => {
+    setGrades((prevGrades) => prevGrades.filter((grade) => grade.id !== gradeId));
   };
 
   const isModule = branchName === "Module" || branchName === "TIP";
@@ -99,7 +104,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                 <ul className="grid grid-cols-2 gap-5">
                   {Array.isArray(grades) &&
                     grades.map((grade, index) => (
-                      <GradeLine key={index} grade={grade} index={index + 1} />
+                        <GradeLine key={index} grade={grade} index={index + 1} onDeleteGrade={deleteGrade} />
                     ))}
                 </ul>
               </div>
