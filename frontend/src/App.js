@@ -31,7 +31,7 @@ const App = () => {
             element={
               <Grades
                 branchName={link}
-                fetchUrl={`http://localhost:8000/grades/${link}/list`}
+                fetchUrl={`http://localhost:8000/grades/${link}/get_grades_by_branch/`}
               />
             }
           />

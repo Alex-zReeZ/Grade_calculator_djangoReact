@@ -18,7 +18,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/grades/${branchName}`,
+        `http://localhost:8000/grades/${branchName}/add_grade/`,
         {
           method: "POST",
           headers: {
