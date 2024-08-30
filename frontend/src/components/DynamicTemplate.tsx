@@ -88,7 +88,6 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                   <h1 className="text-2xl font-bold mb-4">
                     Your {branchName} Grades
                   </h1>
-                  {/* @ts-ignore */}
                   <AddGrades onAddGrade={addGrade} branchName={branchName} />
                 </div>
                 <div className="w-full mt-5">
