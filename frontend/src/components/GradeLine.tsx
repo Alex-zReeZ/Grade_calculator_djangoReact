@@ -46,16 +46,18 @@ function GradeLine({ grade, index }) {
           </button>
         </div>
       </div>
-      {isMenuOpen && (
-        <div className="mt-4 bg-gray-50 border border-gray-200 rounded-lg shadow-md p-3">
-          <button
-            onClick={handleDelete}
-            className="text-red-500 hover:text-red-700 transition-colors duration-200 ease-in-out"
-          >
-            Supprimer
-          </button>
-        </div>
-      )}
+      <div className="flex justify-end">
+        {isMenuOpen && (
+          <div className="w-fit mt-4 bg-gray-50 border border-gray-200 rounded-lg shadow-md p-3">
+            <button
+              onClick={handleDelete}
+              className="text-red-500 hover:text-red-700 transition-colors duration-200 ease-in-out"
+            >
+              Supprimer
+            </button>
+          </div>
+        )}
+      </div>
       <div className="mt-4">
         <span className="text-gray-500 text-sm">Detail:</span>
         {grade.detail && <p className="text-gray-700 mt-1">{grade.detail}</p>}
