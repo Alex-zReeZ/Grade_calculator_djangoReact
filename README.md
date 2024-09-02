@@ -1,6 +1,6 @@
 Here is a README.md file for the project based on the directory structure you've provided:
 
-# Project Name
+# GradiX
 
 This is a web application that provides functionalities such as user authentication, grade management, and profile management. The frontend is built using React with TypeScript, while the backend is powered by Django.
 
