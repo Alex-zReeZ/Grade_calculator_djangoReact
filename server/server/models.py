@@ -15,7 +15,7 @@ class BranchGrade(models.Model):
         return self.branch
 
 class Grade(models.Model):
-    grade = models.IntegerField(unique=False)
+    grade = models.FloatField(unique=False)
     detail = models.CharField(max_length=255, default='default')
     branch = models.ForeignKey(BranchGrade, on_delete=models.CASCADE, null=True, blank=True)
 
