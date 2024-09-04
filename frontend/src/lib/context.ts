@@ -8,5 +8,5 @@ export function isAuthenticated() {
 export function getBranches() {
   return fetch("http://localhost:8000/branches/")
     .then((response) => response.json())
-    .then((data) => data.map((branch) => branch.name));
+    .then((data) => data.map((branch) => ({ id: branch.id, name: branch.name })));
 }
