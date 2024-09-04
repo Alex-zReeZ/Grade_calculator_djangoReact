@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
 } from "react-router-dom";
-import { getAllBranches, isAuthenticated } from "./lib/context.ts";
+import { getBranches, isAuthenticated } from "./lib/context.ts";
 import Login from "./components/Login.tsx";
 import Signup from "./components/Signup.tsx";
 import Home from "./pages/Home.tsx";
 import Grades from "./template/Grades.tsx";
 
 const App = () => {
-  const links = getAllBranches();
+  const [links, setLinks] = useState([]);
+
+  useEffect(() => {
+    const fetchBranches = async () => {
+      const branches = await getBranches();
+      setLinks(branches);
+    };
+
+    fetchBranches();
+  }, []);
 
   return (
     <Router>
@@ -27,6 +36,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         {links.map((link) => (
           <Route
+            key={link}
             path={`/${link}`}
             element={
               <Grades

@@ -5,17 +5,8 @@ export function isAuthenticated() {
   return !!token;
 }
 
-export const getAllBranches = () => {
-  return [
-    "Maths",
-    "French",
-    "English",
-    "German",
-    "Science",
-    "Maths DC",
-    "Histoire",
-    "Economics and Law",
-    "Module",
-    "TIP",
-  ];
-};
+export function getBranches() {
+  return fetch("http://localhost:8000/branches/")
+    .then((response) => response.json())
+    .then((data) => data.map((branch) => branch.name));
+}

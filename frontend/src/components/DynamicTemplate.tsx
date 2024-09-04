@@ -8,7 +8,7 @@ import DisplayAverage from "./DisplayAverage.tsx";
 // @ts-ignore
 import UserProfile from "./UserProfile.tsx";
 // @ts-ignore
-import { getAllBranches } from "../lib/context.ts";
+import { getBranches } from "../lib/context.ts";
 
 interface DynamicTemplateProps {
   branchName: string;
@@ -27,7 +27,16 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   fetchUrl,
 }) => {
   const [grades, setGrades] = useState<Grade[]>([]);
-  const allBranch = getAllBranches();
+  const [links, setLinks] = useState([]);
+
+  useEffect(() => {
+    const fetchBranches = async () => {
+      const branches = await getBranches();
+      setLinks(branches);
+    };
+
+    fetchBranches();
+  }, []);
 
   useEffect(() => {
     const fetchGrades = async () => {
@@ -52,7 +61,9 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   };
 
   const deleteGrade = (gradeId: number) => {
-    setGrades((prevGrades) => prevGrades.filter((grade) => grade.id !== gradeId));
+    setGrades((prevGrades) =>
+      prevGrades.filter((grade) => grade.id !== gradeId),
+    );
   };
 
   const isModule = branchName === "Module" || branchName === "TIP";
@@ -73,7 +84,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
         <main>
           <section>
             <div className="w-full flex space-x-[-10px]">
-              {allBranch.map((branch, index) => (
+              {links.map((branch, index) => (
                 <a
                   key={index}
                   href={`/${branch}`}
@@ -96,7 +107,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                   <AddGrades onAddGrade={addGrade} branchName={branchName} />
                 </div>
                 <div className="w-full mt-5">
-                  <DisplayAverage grades={grades} module={isModule} />
+                  <DisplayAverage grades={grades} module={isModule} branchId={10} />
                 </div>
               </div>
               <div className="w-full">
@@ -104,7 +115,12 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                 <ul className="grid grid-cols-2 gap-5">
                   {Array.isArray(grades) &&
                     grades.map((grade, index) => (
-                        <GradeLine key={index} grade={grade} index={index + 1} onDeleteGrade={deleteGrade} />
+                      <GradeLine
+                        key={index}
+                        grade={grade}
+                        index={index + 1}
+                        onDeleteGrade={deleteGrade}
+                      />
                     ))}
                 </ul>
               </div>
