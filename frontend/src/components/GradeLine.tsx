@@ -14,20 +14,21 @@ function GradeLine({ grade, index, onDeleteGrade }) {
 
     try {
       const response = await fetch(
-          `http://localhost:8000/grades/${grade.id}/`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(grade.id),
+        `http://localhost:8000/grades/${grade.id}/`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify(grade.id),
+        },
       );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       onDeleteGrade(grade.id);
+      setIsMenuOpen(false);
     } catch (error) {
       console.error("Error submitting grade:", error);
     }
