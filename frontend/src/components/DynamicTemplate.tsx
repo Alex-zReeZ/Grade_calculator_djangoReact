@@ -109,7 +109,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                   <AddGrades onAddGrade={addGrade} branchName={branchName} />
                 </div>
                 <div className="w-full mt-5">
-                  <DisplayAverage grades={grades} module={isModule} branchId={branchId} />
+                  <DisplayAverage grades={grades} module={isModule} branchId={branchId} branchName={branchName} />
                 </div>
               </div>
               <div className="w-full">
