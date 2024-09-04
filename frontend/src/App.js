@@ -17,7 +17,7 @@ const App = () => {
   useEffect(() => {
     const fetchBranches = async () => {
       const branches = await getBranches();
-      setLinks(branches);
+      setLinks(branches.map(branch => branch.name));
     };
 
     fetchBranches();
