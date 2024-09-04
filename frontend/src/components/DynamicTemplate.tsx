@@ -27,7 +27,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   fetchUrl,
 }) => {
   const [grades, setGrades] = useState<Grade[]>([]);
-  const [links, setLinks] = useState([]);
+  const [links, setLinks] = useState<{ id: number; name: string }[]>([]);
 
   useEffect(() => {
     const fetchBranches = async () => {
@@ -67,6 +67,8 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   };
 
   const isModule = branchName === "Module" || branchName === "TIP";
+  const branch = links.find((link) => link.name === branchName);
+  const branchId = branch ? branch.id : null;
 
   return (
     <>
@@ -84,17 +86,17 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
         <main>
           <section>
             <div className="w-full flex space-x-[-10px]">
-              {links.map((branch, index) => (
+              {links.map((branch) => (
                 <a
-                  key={index}
-                  href={`/${branch}`}
+                  key={branch.id}
+                  href={`/${branch.name}`}
                   className={`p-4 bg-white rounded-t-2xl hover:border-2 hover:border-blue-600 hover:border-b-0 hover:z-0 text-center 0px] font-semibold ${
-                    branch === branchName
+                    branch.name === branchName
                       ? "bg-gray-100 text-blue-600 border-2 border-b-0 border-blue-600 outline-none -mt-2 z-0"
                       : ""
                   }`}
                 >
-                  {branch}
+                  {branch.name}
                 </a>
               ))}
             </div>
@@ -107,7 +109,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
                   <AddGrades onAddGrade={addGrade} branchName={branchName} />
                 </div>
                 <div className="w-full mt-5">
-                  <DisplayAverage grades={grades} module={isModule} branchId={10} />
+                  <DisplayAverage grades={grades} module={isModule} branchId={branchId} />
                 </div>
               </div>
               <div className="w-full">
