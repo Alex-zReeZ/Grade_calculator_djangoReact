@@ -17,4 +17,4 @@ class GradeSerializer(serializers.ModelSerializer):
 class BranchSerializer(serializers.ModelSerializer):
     class Meta(object):
         model = AllBranch
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'average']
