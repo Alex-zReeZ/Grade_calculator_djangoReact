@@ -12,7 +12,7 @@ class BranchGrade(models.Model):
     branch = models.ForeignKey(AllBranch, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.branch
+        return str(self.branch)
 
 class Grade(models.Model):
     grade = models.FloatField(unique=False)
