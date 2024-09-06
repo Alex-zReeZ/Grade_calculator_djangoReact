@@ -18,13 +18,7 @@ class Grade(models.Model):
     grade = models.FloatField(unique=False)
     detail = models.CharField(max_length=255, default='default')
     branch = models.ForeignKey(BranchGrade, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.grade)
-
-class GradeUser(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    branches = models.ManyToManyField(AllBranch)
-
-    def __str__(self):
-        return str(self.user)
