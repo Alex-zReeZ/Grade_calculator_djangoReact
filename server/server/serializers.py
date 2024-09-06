@@ -14,6 +14,11 @@ class GradeSerializer(serializers.ModelSerializer):
         model = Grade
         fields = ['id', 'grade', 'detail', 'branch', 'user']
 
+class GradeWithoutUserSerializer(serializers.ModelSerializer):
+    class Meta(object):
+        model = Grade
+        fields = ['id', 'grade', 'detail', 'branch']
+
 class BranchSerializer(serializers.ModelSerializer):
     class Meta(object):
         model = AllBranch
