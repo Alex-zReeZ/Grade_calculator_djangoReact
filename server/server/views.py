@@ -6,11 +6,16 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 
 from .models import Grade, AllBranch, BranchGrade
+from .permissions import IsOwner
 from .serializers import UserSerializer, GradeSerializer, BranchSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsOwner]
+
+    def get_queryset(self):
+        return self.queryset.filter(id=self.request.user.id)
 
     @action(detail=False, methods=['post'])
     def login(self, request):
