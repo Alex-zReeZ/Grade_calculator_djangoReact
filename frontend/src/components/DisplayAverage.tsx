@@ -1,6 +1,8 @@
 // @ts-ignore
 import { GradeColor } from "./GradeColor.tsx";
 import { useEffect } from "react";
+// @ts-ignore
+import { getToken } from "../lib/context.ts";
 
 interface DisplayAverageProps {
   grades: { grade: number }[];
@@ -10,6 +12,8 @@ interface DisplayAverageProps {
 }
 
 const DisplayAverage: React.FC<DisplayAverageProps> = ({ grades, module, branchId, branchName }) => {
+  const token = getToken();
+
   const calculateAverage = (grades: { grade: number }[]): number => {
     if (grades.length === 0) return 0;
     const total = grades.reduce((sum, { grade }) => sum + grade, 0);
@@ -22,7 +26,7 @@ const DisplayAverage: React.FC<DisplayAverageProps> = ({ grades, module, branchI
     try {
       const response = await fetch(`http://localhost:8000/branches/${branchId}/`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", authorization: `Token ${token}` },
         body: JSON.stringify({ name: branchName, average: roundedAverage }),
       });
 

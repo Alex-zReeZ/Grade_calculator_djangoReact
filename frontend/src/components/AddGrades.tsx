@@ -1,4 +1,6 @@
 import { useState } from "react";
+// @ts-ignore
+import {getToken} from "../lib/context.ts";
 
 interface AddGradeFormProps {
   onAddGrade: (grade: {
@@ -13,6 +15,8 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
   const [grade, setgrade] = useState<number | null>(null);
   const [detail, setdetail] = useState("");
 
+  const token = getToken();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -23,6 +27,7 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
           },
           body: JSON.stringify({ grade, detail }),
         },

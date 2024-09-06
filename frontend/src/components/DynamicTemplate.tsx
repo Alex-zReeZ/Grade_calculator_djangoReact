@@ -8,7 +8,7 @@ import DisplayAverage from "./DisplayAverage.tsx";
 // @ts-ignore
 import UserProfile from "./UserProfile.tsx";
 // @ts-ignore
-import { getBranches } from "../lib/context.ts";
+import { getBranches, getToken } from "../lib/context.ts";
 
 interface DynamicTemplateProps {
   branchName: string;
@@ -29,6 +29,8 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   const [grades, setGrades] = useState<Grade[]>([]);
   const [links, setLinks] = useState<{ id: number; name: string }[]>([]);
 
+  const token = getToken();
+
   useEffect(() => {
     const fetchBranches = async () => {
       const branches = await getBranches();
@@ -41,7 +43,11 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   useEffect(() => {
     const fetchGrades = async () => {
       try {
-        const response = await fetch(fetchUrl);
+        const response = await fetch(fetchUrl, {
+          headers: {
+            "Authorization": `Token ${token}`,
+          },
+        });
         const data = await response.json();
         if (Array.isArray(data)) {
           setGrades(data);

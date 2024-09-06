@@ -1,9 +1,13 @@
 // @ts-ignore
 import { GradeColor } from "./GradeColor.tsx";
 import { useState } from "react";
+// @ts-ignore
+import { getToken } from "../lib/context.ts";
 
 function GradeLine({ grade, index, onDeleteGrade }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const token = getToken();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,6 +23,7 @@ function GradeLine({ grade, index, onDeleteGrade }) {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
           },
           body: JSON.stringify(grade.id),
         },
