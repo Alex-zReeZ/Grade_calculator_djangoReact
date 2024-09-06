@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
 class GradeSerializer(serializers.ModelSerializer):
     class Meta(object):
         model = Grade
-        fields = ['id', 'grade', 'detail', 'branch']
+        fields = ['id', 'grade', 'detail', 'branch', 'user']
 
 class BranchSerializer(serializers.ModelSerializer):
     class Meta(object):
