@@ -121,6 +121,9 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
             </div>
             <div className="w-full bg-white p-5 rounded-2xl">
               <h2 className="text-2xl font-bold mb-4">Your Grades:</h2>
+              {grades && grades.length === 0 && (
+                <p className="grid h-3/4 items-center text-center text-4xl">No grades yet!</p>
+              )}
               <ul className="grid grid-cols-2 gap-5">
                 {Array.isArray(grades) &&
                   grades.map((grade, index) => (
