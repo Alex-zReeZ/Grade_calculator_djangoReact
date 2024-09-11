@@ -1,4 +1,4 @@
-export function GradeColor({ grade }) {
+export function GradeColor({ grade, className }) {
   let color;
   if (grade === 0) {
     color = "#000000";
@@ -15,10 +15,7 @@ export function GradeColor({ grade }) {
   return grade === 0 ? (
     "No Grade Yet"
   ) : (
-    <span
-      className="w-fit text-lg font-semibold p-5 py-3 border-2 bg-white rounded-2xl"
-      style={{ color: color, borderColor: color }}
-    >
+    <span className={className} style={{ color: color, borderColor: color }}>
       {grade}
     </span>
   );

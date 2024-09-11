@@ -24,12 +24,16 @@ const Login = () => {
         document.cookie = `token=${data.token}; path=/; max-age=${60 * 60 * 24}`;
         console.log("Login successful, token stored in cookies");
       } else {
-        setError("Une erreur s'est produite. Veuillez vérifier les informations entrées.");
+        setError(
+          "Une erreur s'est produite. Veuillez vérifier les informations entrées.",
+        );
         console.error("Login failed, no token received");
       }
       console.log(data);
     } catch (error) {
-      setError("Une erreur s'est produite. Veuillez vérifier les informations entrées.");
+      setError(
+        "Une erreur s'est produite. Veuillez vérifier les informations entrées.",
+      );
       console.error(error);
     }
   };

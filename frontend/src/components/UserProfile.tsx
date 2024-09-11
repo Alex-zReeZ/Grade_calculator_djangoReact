@@ -11,7 +11,7 @@ function UserProfile() {
   return (
     <div>
       <button
-        className="flex justify-center items-center h-14 w-14 rounded-full bg-white cursor-pointer shadow-2xl hover:border-2 hover:border-blue-600"
+        className="flex justify-center items-center h-14 w-14 rounded-full bg-white cursor-pointer shadow-2xl hover:border-2 hover:border-amber-600"
         onClick={() => {
           setIsOpen(!isOpen);
         }}

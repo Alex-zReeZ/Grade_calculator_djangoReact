@@ -1,6 +1,6 @@
 import { useState } from "react";
 // @ts-ignore
-import {getToken} from "../lib/context.ts";
+import { getToken } from "../lib/context.ts";
 
 interface AddGradeFormProps {
   onAddGrade: (grade: {
@@ -48,45 +48,49 @@ const AddGrade: React.FC<AddGradeFormProps> = ({ onAddGrade, branchName }) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full h-fit max-w-md space-y-6 bg-white p-6 rounded-lg shadow-2xl"
-    >
-      <div>
-        <label className="block text-sm font-semibold text-gray-700">
-          Grade (1-6)
-        </label>
-        <input
-          type="number"
-          value={grade ?? ""}
-          onChange={(e) => setgrade(Number(e.target.value))}
-          className="mt-2 block w-16 p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
-          min="1"
-          max="6"
-          step="0.5"
-          placeholder="1-6"
-          required
-        />
-      </div>
-      <div>
-        <label className="block text-sm font-semibold text-gray-700">
-          Detail
-        </label>
-        <textarea
-          value={detail}
-          onChange={(e) => setdetail(e.target.value)}
-          className="mt-2 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition sm:text-sm"
-          rows={2}
-          placeholder="Enter your test chapter or module number"
-        />
-      </div>
-      <button
-        type="submit"
-        className="w-full py-3 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+    <>
+      <h1 className="text-2xl font-bold mb-4 pl-5">Your {branchName} Grades</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full h-fit max-w-md space-y-6 p-6 rounded-lg"
       >
-        Add Grade
-      </button>
-    </form>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700">
+            Grade (1-6)
+          </label>
+          <input
+            type="number"
+            value={grade ?? ""}
+            onChange={(e) => setgrade(Number(e.target.value))}
+            className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-1 focus:ring-amber-600 focus:border-amber-600 outline-none"
+            min="1"
+            max="6"
+            step="0.5"
+            placeholder="1-6"
+            required
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-gray-700">
+            Detail
+          </label>
+          <textarea
+            value={detail}
+            onChange={(e) => setdetail(e.target.value)}
+            rows={2}
+            className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-1 focus:ring-amber-600 focus:border-amber-600 outline-none"
+            placeholder="Leave a comment..."
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full py-3 px-4 bg-amber-600 text-white font-semibold rounded-md shadow-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        >
+          Add Grade
+        </button>
+      </form>
+    </>
   );
 };
 

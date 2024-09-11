@@ -25,7 +25,7 @@ function PolarAreaChart() {
         }
 
         const data = await response.json();
-        const transformedData = data.map(branch => ({
+        const transformedData = data.map((branch) => ({
           name: branch.name,
           average: branch.average,
         }));
@@ -41,7 +41,7 @@ function PolarAreaChart() {
   const options = {
     series: averages.map((branch) => branch.average),
     chart: {
-      type: 'polarArea',
+      type: "polarArea",
       height: 1600,
       width: 1600,
     },
@@ -51,18 +51,18 @@ function PolarAreaChart() {
     },
     labels: averages.map((branch) => branch.name),
     stroke: {
-      colors: ['rgba(0,0,0,0)']
+      colors: ["rgba(0,0,0,0)"],
     },
     fill: {
-      opacity: 0.8
+      opacity: 0.8,
     },
   };
 
   return (
     <div className="w-full">
       {averages.length > 0 ? (
-          // @ts-ignore
-          <Chart options={options} series={options.series} type="polarArea" />
+        // @ts-ignore
+        <Chart options={options} series={options.series} type="polarArea" />
       ) : (
         <p>Loading...</p>
       )}

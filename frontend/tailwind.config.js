@@ -9,9 +9,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "math-bg": "url('/public/img/Maths.jpeg')",
-        "French-bg": "url('/public/img/French.jpeg')",
-        "English-bg": "url('/public/img/English.jpeg')",
+        "bg-image": "url('/public/img/bg-GradeApp-2.webp')",
       },
     },
   },

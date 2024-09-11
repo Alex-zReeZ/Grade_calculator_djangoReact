@@ -11,17 +11,14 @@ function Home() {
     {
       href: "/Maths",
       text: "Maths - DF",
-      className: "bg-math-bg text-white",
     },
     {
       href: "/French",
       text: "Français",
-      className: "bg-French-bg text-black bg-center",
     },
     {
       href: "/English",
       text: "Anglais",
-      className: "bg-English-bg text-black bg-center",
     },
     {
       href: "/German",
@@ -61,7 +58,7 @@ function Home() {
     <>
       <nav className="absolute right-5 top-5 flex flex-row gap-x-5 ">
         <button
-          className="p-3 rounded-2xl bg-white shadow-2xl hover:border-2 hover:border-blue-600"
+          className="p-3 rounded-2xl bg-white shadow-2xl hover:border-2 hover:border-amber-600"
           onClick={() => setOpen(!open)}
         >
           Year data
@@ -80,7 +77,7 @@ function Home() {
       )}
       <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
         <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-blue-600">GradiX</h1>
+          <h1 className="text-4xl font-bold text-amber-600">GradiX</h1>
         </header>
         <main className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
           <section className="text-center">
@@ -97,7 +94,7 @@ function Home() {
               <a
                 key={index}
                 href={href}
-                className={`text-center py-5 p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-blue-600 ${className}`}
+                className={`text-center py-5 p-4 bg-white shadow-md rounded-lg hover:border-2 hover:border-amber-600 ${className}`}
               >
                 <span className="inset-0 flex items-center justify-center font-bold">
                   {text}
