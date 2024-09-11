@@ -3,6 +3,8 @@ import UserProfile from "../components/UserProfile.tsx";
 import { useState } from "react";
 // @ts-ignore
 import RadialBarChart from "../components/RadialBarChart.tsx";
+// @ts-ignore
+import PolarAreaChart from "../components/PolarAreaChart.tsx";
 
 function Home() {
   const links = [
@@ -69,8 +71,9 @@ function Home() {
       {open && (
         <>
           <div className="absolute right-24 top-[84px] w-[89%] h-[81%] bg-white rounded-2xl shadow-2xl z-0">
-            <div className="flex">
+            <div className="grid grid-cols-2 w-full h-full items-center">
               <RadialBarChart />
+              <PolarAreaChart />
             </div>
           </div>
         </>
