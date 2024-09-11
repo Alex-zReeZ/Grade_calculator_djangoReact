@@ -24,7 +24,7 @@ const App = () => {
 
       fetchBranches();
     } else {
-        setLinks([]);
+      setLinks([]);
     }
   }, [token]);
 
