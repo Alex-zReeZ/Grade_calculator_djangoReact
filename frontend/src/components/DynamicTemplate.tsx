@@ -77,8 +77,9 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
   const branchId = branch ? branch.id : null;
 
   return (
-    <body className="min-h-screen bg-bg-image bg-cover">
-      <div className="p-4">
+    <body className="relative min-h-screen bg-bg-image bg-cover">
+      <div className="absolute inset-0 bg-black opacity-20"></div>
+      <div className="relative p-4">
         <header>
           <h1 className="w-fit px-10 p-4 bg-white rounded-2xl text-4xl font-bold text-amber-600 shadow-lg">
             GradiX &nbsp; - &nbsp; {branchName}
@@ -88,7 +89,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
           </div>
         </header>
       </div>
-      <main className="p-4 min-h-full flex flex-col">
+      <main className="relative p-4 min-h-full flex flex-col">
         <section>
           <div className="w-full flex justify-between gap-x-2 mb-2">
             {links.map((branch) => (
