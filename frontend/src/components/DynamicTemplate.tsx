@@ -84,7 +84,7 @@ const DynamicTemplate: React.FC<DynamicTemplateProps> = ({
           <h1 className="w-fit px-10 p-4 bg-white rounded-2xl text-4xl font-bold text-amber-600 shadow-lg">
             GradiX &nbsp; - &nbsp; {branchName}
           </h1>
-          <div className="absolute top-5 right-5">
+          <div className="absolute top-5 right-5 z-50">
             <UserProfile />
           </div>
         </header>
