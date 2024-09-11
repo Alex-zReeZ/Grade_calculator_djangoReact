@@ -11,10 +11,6 @@ export function getToken() {
     .find((row) => row.startsWith("token="))
     ?.split("=")[1];
 
-  if (!token) {
-    throw new Error("Token not found");
-  }
-
   return token;
 }
 

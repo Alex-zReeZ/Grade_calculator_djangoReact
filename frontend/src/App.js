@@ -5,7 +5,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import { getBranches, isAuthenticated } from "./lib/context.ts";
+import { getBranches, getToken, isAuthenticated } from "./lib/context.ts";
 import Login from "./components/Login.tsx";
 import Signup from "./components/Signup.tsx";
 import Home from "./pages/Home.tsx";
@@ -13,15 +13,20 @@ import Grades from "./template/Grades.tsx";
 
 const App = () => {
   const [links, setLinks] = useState([]);
+  let token = getToken();
 
   useEffect(() => {
-    const fetchBranches = async () => {
-      const branches = await getBranches();
-      setLinks(branches.map((branch) => branch.name));
-    };
+    if (token) {
+      const fetchBranches = async () => {
+        const branches = await getBranches();
+        setLinks(branches.map((branch) => branch.name));
+      };
 
-    fetchBranches();
-  }, []);
+      fetchBranches();
+    } else {
+        setLinks([]);
+    }
+  }, [token]);
 
   return (
     <Router>
