@@ -1,0 +1,408 @@
+{
+  "info": {
+    "_postman_id": "gradix-api-collection",
+    "name": "GradiX API",
+    "description": "Collection Postman pour tester l'API GradiX",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"john_doe\",\n  \"password\": \"securepass123\",\n  \"email\": \"john@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/users/signup/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "users", "signup", ""]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"john_doe\",\n  \"password\": \"securepass123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/users/login/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "users", "login", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Grades",
+      "item": [
+        {
+          "name": "Add Grade",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grade\": 85.5,\n  \"detail\": \"Examen Janvier 2026\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/newGrade/Mathematics/add_grade/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "newGrade", "Mathematics", "add_grade", ""]
+            }
+          }
+        },
+        {
+          "name": "My Grades",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/grades/my_grades/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "grades", "my_grades", ""]
+            }
+          }
+        },
+        {
+          "name": "Grades by Branch",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/grades/Mathematics/get_grades_by_branch/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "grades", "Mathematics", "get_grades_by_branch", ""]
+            }
+          }
+        },
+        {
+          "name": "List All Grades",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/grades/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "grades", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Grade Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/grades/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "grades", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Grade",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grade\": 90.0,\n  \"detail\": \"Examen Janvier (révisé)\",\n  \"branch\": 1,\n  \"user\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/grades/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "grades", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Partial Update Grade",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grade\": 92.5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/grades/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "grades", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Delete Grade",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/grades/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "grades", "1", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Branches",
+      "item": [
+        {
+          "name": "List All Branches",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/branches/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "branches", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Branch Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/branches/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "branches", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Branch",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Biology\",\n  \"average\": 0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/branches/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "branches", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Branch",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Biology\",\n  \"average\": 85.5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/branches/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "branches", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Delete Branch",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/branches/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "branches", "1", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/users/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "users", ""]
+            }
+          }
+        },
+        {
+          "name": "Get User Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8000/api/users/1/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8000",
+              "path": ["api", "users", "1", ""]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": "your-token-here",
+      "type": "string"
+    }
+  ]
+}
