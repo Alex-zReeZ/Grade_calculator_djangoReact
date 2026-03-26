@@ -64,6 +64,9 @@ python manage.py migrate
 
 # Créer des migrations
 python manage.py makemigrations
+
+# Exécuter les tests backend
+python manage.py test
 ```
 
 ### React
@@ -76,6 +79,9 @@ npm run build
 
 # Exécuter les tests
 npm test
+
+# Exécuter les tests en mode CI (sans watch)
+npm run test:ci
 
 # Formater le code
 npm run format
@@ -116,6 +122,18 @@ npm audit fix
 ### Les migrations échouent
 ```bash
 python manage.py migrate --fake-initial
+```
+
+### Les tests backend/frontend
+```bash
+# Backend
+cd server
+source ../venv/bin/activate
+python manage.py test
+
+# Frontend
+cd frontend
+npm run test:ci
 ```
 
 ### Le port est déjà utilisé
